@@ -1,0 +1,153 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="tasarim.master.cs" Inherits="hastaneRandevuSistemi.tasarim" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<script type="text/javascript">
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        var y = today.getYear().toString;
+        var mth = today.getMonth();
+        var d = today.getDay();
+        // add a zero in front of numbers<10
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('Label2').innerHTML = h + ":" + m + ":" + s;
+        t = setTimeout('startTime()', 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+<style type="text/css">
+    .CssStyle1
+    {
+
+    font: 700 10pt Arial;
+    color: blue;
+
+    background-attachment: scroll;background-image: url("./siteResimleri/kaydet.png");
+    }
+    .arkaPlan
+    {
+        font-family:Arial, Helvetica, sans-serif;
+        margin-top:20px;
+        margin-bottom:40px;
+	    background:url(/siteResimleri/2.jpg) center top white repeat fixed;
+        line-height:12px;    
+    }
+    .cikis
+    {
+        border-top-style:dashed;
+        border-left-style:dashed;
+        border-right-style:dashed;
+        border-bottom-style:dashed;
+        color:Red;
+        font-family:Arial Black;
+    }
+    .yeniUye
+    {
+        background-image:url(siteResimleri/new.jpg);
+    }
+    .passwd
+    {
+        font-family:@Arial Unicode MS;
+        background-position:center;
+        color:Black;
+        z-index:auto;
+    }
+</style>
+<style type="text/css">
+    .CssStyle2
+    {
+        background-attachment: scroll; background-image : url("./siteResimleri/admin.png");
+        }
+</style>
+<style type="text/css">
+        ::selection{background-color:Orange;color:Black}   
+        .textboxGiris 
+        {
+          background: #f1f1f1;
+          padding: 6px 5px;
+          margin: 0 0 5px 0;
+          width: 200px;
+          border: 1px solid #ccc;
+          -moz-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          border-radius: 3px;
+          -moz-box-shadow: 0 1px 1px #ccc inset;
+          -webkit-box-shadow: 0 1px 1px #ccc inset;
+          box-shadow: 0 1px 1px #ccc inset;
+        }
+
+        .textboxGiris:focus {
+          background-color: #fff;
+          border-color: #e8c291;
+          outline: none;
+          -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+          -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+          box-shadow: 0
+        }
+        .linkButton
+        {
+            text-decoration:none;
+        }
+</style>
+<body bgcolor="#acb9ac" onload="startTime()" class="arkaPlan">
+    <form id="form1" runat="server">
+    <div>
+    <table width="1024" runat="server" align="center">
+        <tr>
+            <td>
+               <a href="Default.aspx" target="_self"><asp:Image ID="Image1" runat="server" src="/siteResimleri/a3.jpg"/></a>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <asp:ContentPlaceHolder ID="randevuBilgisi" runat="server"> </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <div>
+                    <asp:ContentPlaceHolder ID="RandevuGecmisi" runat="server"> </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td align="right">
+            <div style="background-color: #00FFCC">
+                <asp:Label ID="Label1" runat="server" Text="Sistem Saati : " Font-Bold="True"></asp:Label>
+                <asp:Label ID="tarihGoster" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+            </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    </form>
+</body>
+</html>
